@@ -49,7 +49,7 @@ test.afterEach(function afterEachTest(t) {
 test.cb(function shouldDisplayWelcomeTitle(t) {
 	var testLog = {
 		info: function (msg) {
-			t.is(msg, 'Npm Task List - v' + pkg.version);
+			t.is(msg, 'Npm Task Info - v' + pkg.version);
 			t.end();
 		}
 	};
