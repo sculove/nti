@@ -10,7 +10,7 @@ var fs = require('fs');
 var test = require('ava').test;
 var tempdir = require('tempdir');
 var tempfile = require('tempfile');
-var ntl = require('../');
+var nti = require('../');
 var pkg = require('../package');
 
 // Mocked deps
@@ -53,7 +53,7 @@ test.cb(function shouldDisplayWelcomeTitle(t) {
 			t.end();
 		}
 	};
-	ntl(t.context.p, exec, testLog, cwd, tasks, options);
+	nti(t.context.p, exec, testLog, cwd, tasks, options);
 });
 
 test.cb(function shouldDisplayVersion(t) {
@@ -63,7 +63,7 @@ test.cb(function shouldDisplayVersion(t) {
 			t.end();
 		}
 	};
-	ntl(t.context.p, exec, testLog, cwd, tasks, {version: true});
+	nti(t.context.p, exec, testLog, cwd, tasks, {version: true});
 });
 
 test.cb(function shouldDisplayHelp(t) {
@@ -73,7 +73,7 @@ test.cb(function shouldDisplayHelp(t) {
 			t.end();
 		}
 	};
-	ntl(t.context.p, exec, testLog, cwd, tasks, {version: true});
+	nti(t.context.p, exec, testLog, cwd, tasks, {version: true});
 });
 
 test.cb(function shouldSelectDefaultTask(t) {
@@ -81,7 +81,7 @@ test.cb(function shouldSelectDefaultTask(t) {
 		t.is(name, 'npm run start');
 		t.end();
 	};
-	var prompt = ntl(t.context.p, testExec, log, cwd, tasks, options);
+	var prompt = nti(t.context.p, testExec, log, cwd, tasks, options);
 	prompt.rl.emit('line');
 });
 
@@ -90,7 +90,7 @@ test.cb(function shouldSelectTask(t) {
 		t.is(name, 'npm run build');
 		t.end();
 	};
-	var prompt = ntl(t.context.p, testExec, log, cwd, tasks, options);
+	var prompt = nti(t.context.p, testExec, log, cwd, tasks, options);
 	prompt.rl.input.emit('keypress', null, {name: 'down'});
 	prompt.rl.input.emit('keypress', null, {name: 'down'});
 	prompt.rl.emit('line');
@@ -101,7 +101,7 @@ test.cb(function shouldSelectPrefixedTasksWithAllFlag(t) {
 		t.is(name, 'npm run pretest');
 		t.end();
 	};
-	var prompt = ntl(t.context.p, testExec, log, cwd, tasks, {all: true});
+	var prompt = nti(t.context.p, testExec, log, cwd, tasks, {all: true});
 	prompt.rl.input.emit('keypress', null, {name: 'up'});
 	prompt.rl.emit('line');
 });
@@ -111,7 +111,7 @@ test.cb(function shouldDisplayScriptContentsWithInfoFlag(t) {
 		t.is(name, 'npm run test');
 		t.end();
 	};
-	var prompt = ntl(t.context.p, testExec, log, cwd, tasks, {info: true});
+	var prompt = nti(t.context.p, testExec, log, cwd, tasks, {info: true});
 	prompt.rl.input.emit('keypress', null, {name: 'up'});
 	prompt.rl.emit('line');
 });
@@ -124,7 +124,7 @@ test.cb(function shouldSelectMultipleTasksUsingFlag(t) {
 			t.end();
 		}
 	};
-	var prompt = ntl(t.context.p, testExec, log, cwd, tasks, {multiple: true});
+	var prompt = nti(t.context.p, testExec, log, cwd, tasks, {multiple: true});
 	prompt.rl.input.emit('keypress', ' ', {name: 'space'});
 	prompt.rl.input.emit('keypress', null, {name: 'down'});
 	prompt.rl.input.emit('keypress', ' ', {name: 'space'});
@@ -138,7 +138,7 @@ test.cb(function shouldNotFailOnNoTasksAvailable(t) {
 			t.end();
 		}
 	};
-	ntl(t.context.p, exec, testLog, cwd, obj, options);
+	nti(t.context.p, exec, testLog, cwd, obj, options);
 });
 
 // --- cli integration tests

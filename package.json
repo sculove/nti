@@ -1,11 +1,11 @@
 {
-  "name": "ntl",
-  "version": "1.2.0",
-  "description": "Npm Task List: Interactive cli menu to list/run npm tasks",
-  "repository": "ruyadorno/ntl",
+  "name": "nti",
+  "version": "0.0.1",
+  "description": "Npm Task Info: Interactive cli menu shown description to list and run npm tasks",
+  "repository": "sculove/nti",
   "author": {
-    "name": "Ruy Adorno",
-    "url": "http://ruyadorno.com"
+    "name": "sculove",
+    "url": "http://sculove.github.io"
   },
   "bin": "cli.js",
   "engines": {
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "pretest": "xo",
-    "test": "ava"
+    "test": "ava # this is description"
   },
   "files": [
     "index.js",
@@ -27,7 +27,9 @@
     "inquirer",
     "cli-app",
     "cli",
+    "nti",
     "ntl",
+    "description",
     "runner",
     "menu"
   ],

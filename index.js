@@ -6,7 +6,7 @@ var pkg = require('./package');
 module.exports = function (p, exec, log, cwd, tasks, options) {
 	function printHelp() {
 		log.info(
-			'\nUsage:\n  ntl [<path>]\n' +
+			'\nUsage:\n  nti [<path>]\n' +
 			'\nOptions:\n  -v --version   Displays app version number\n' +
 			'  -h --help      Shows this help message\n' +
 			'  -a --all       Includes pre and post scripts on the list\n' +
@@ -58,7 +58,7 @@ module.exports = function (p, exec, log, cwd, tasks, options) {
 			return;
 		}
 
-		log.info('Npm Task List - v' + pkg.version);
+		log.info('Npm Task Info - v' + pkg.version);
 
 		var prompt = inquirer.createPromptModule({
 			input: p.stdin,
@@ -71,10 +71,10 @@ module.exports = function (p, exec, log, cwd, tasks, options) {
 				var regExc = /#(.+)/.exec(tasks[key]);
 				var comment = regExc && regExc.pop();
 
-				if (comment) {
-					name += ' - ' + comment.trim();
-				} else {
+				if (options.info) {
 					name += (options.info ? ': ' + tasks[key] : '');
+				} else if (comment) {
+					name += ' - ' + comment.trim();
 				}
 				return {
 					name: name,

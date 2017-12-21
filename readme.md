@@ -1,32 +1,38 @@
-# ntl [![NPM version](https://badge.fury.io/js/ntl.svg)](https://npmjs.org/package/ntl) [![Build Status](https://travis-ci.org/ruyadorno/ntl.svg?branch=master)](https://travis-ci.org/ruyadorno/ntl)
+> When you have a lot of npm-scripts, it's difficult to know the function of the script, so I forked a well-made [ntl](https://github.com/ruyadorno/ntl) project.
 
-> Npm Task List
+# nti [![NPM version](https://badge.fury.io/js/nti.svg)](https://npmjs.org/package/nti) [![Build Status](https://travis-ci.org/sculove/nti.svg?branch=master)](https://travis-ci.org/sculove/nti)
 
-Interactive cli menu to list and run npm tasks.
+> Npm Task Info
 
-![demo gif](http://i.imgur.com/ZjjQ7Vi.gif?1)
+Interactive cli menu shown description to list and run npm tasks.
+
+> You can add description using `#` like following.
+> ```json
+> "scripts": {
+>   "task1": "ava # this is description1",
+>   "task2": "ava # this is description2"
+> },
+> ```
 
 ## Install
 
 ```
-$ npm install -g ntl
+$ npm install -g nti
 ```
-
 
 ## Usage
 
 **cd** to a folder containing a `package.json` files that has configured **scripts**, then:
 
 ```sh
-ntl
+nti
 ```
 
 You can also specify a project folder containing a `package.json` file:
 
 ```sh
-ntl ./my-node-project
+nti ./my-node-project
 ```
-
 
 ## More info
 
@@ -41,10 +47,10 @@ cli options can also be invoked as their shorter alias:
 Here is what the help page looks like:
 
 ```sh
-ntl --help
+nti --help
 
 Usage:
-  ntl [<path>]
+  nti [<path>]
 
 Options:
   -v --version   Displays app version number
@@ -54,8 +60,7 @@ Options:
   -i --info      Displays the contents of each script
 ```
 
-
 ## License
 
-MIT © [Ruy Adorno](http://ruyadorno.com)
+MIT © [sculove](http://sculove.github.io)
 
